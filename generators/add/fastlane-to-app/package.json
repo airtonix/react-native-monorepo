@@ -1,0 +1,7 @@
+{
+  "name": "@airtonix/hygen-generator-monorepo-add-fastlane",
+  "version": "0.0.1",
+  "dependencies": {
+    "@airtonix/hygen-prompts": "0.0.1"
+  }
+}

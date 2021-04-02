@@ -8,7 +8,8 @@
     "packages": [
       "apps/*",
       "packages/*",
-      "tools/*"
+      "tools/*",
+      "generators/**/*"
     ]
   },
   "scripts": {
@@ -18,7 +19,9 @@
     "tool:provision": "yarn workspace @airtonix/provision do"
   },
   "dependencies": {
+    "@babel/core": "^7.13.14",
     "@manypkg/cli": "^0.16.1",
+    "@manypkg/get-packages": "^1.1.1",
     "@react-native-community/cli": "^5.0.1-alpha.2",
     "@types/jest": "^26.0.19",
     "@types/react": "^16.9.56",
