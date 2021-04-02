@@ -1,7 +1,7 @@
 ---
-inject:
+inject: true
+prepend: true
 to: apps/<%= code %>/android/settings.gradle
-after: rootProject.name
 skip_if: REPOROOT
 ---
 def hereDir = System.getProperty("user.dir")
