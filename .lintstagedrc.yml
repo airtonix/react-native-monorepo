@@ -1,0 +1,11 @@
+"package.json":
+  - manypkg fix
+
+"*.{js,ts,tsx,json}":
+  - eslint --fix
+
+"*.md":
+  - "prettier --no-editorconfig --write"
+
+"**/*/{.fastfile,Fastfile}":
+  - "bundle exec rubocop -a --fail-level=E"
