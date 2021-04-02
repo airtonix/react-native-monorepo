@@ -1,0 +1,11 @@
+{
+  "name": "@airtonix/metro-config",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@manypkg/get-packages": "^1.1.1",
+    "is-ci": "3.0.0",
+    "metro-cache": "0.65.2",
+    "metro-config": "0.65.2"
+  }
+}

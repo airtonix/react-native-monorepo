@@ -1,3 +1,5 @@
-const {createMetroConfiguration} = require('expo-yarn-workspaces');
+const {createConfig} = require('@airtonix/metro-config');
 
-module.exports = createMetroConfiguration(__dirname);
+module.exports = createConfig({
+  projectRoot: __dirname,
+});

@@ -3,19 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "TERM=gnome-terminal react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "gradle": "cd android && gradle",
-    "postinstall": "expo-yarn-workspaces postinstall"
+    "gradle": "cd android && gradle"
   },
   "dependencies": {
     "react": "17.0.1",
-    "react-native": "0.64.0"
+    "react-native": "^0.64.0"
   },
   "devDependencies": {
+    "@airtonix/metro-config": "0.0.1",
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
