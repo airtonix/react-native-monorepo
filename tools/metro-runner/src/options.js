@@ -1,8 +1,11 @@
 const nconf = require('nconf');
 const home = require('user-home');
+const { getPackagesSync } = require('@manypkg/get-packages');
 
 const key = 'metrorunner';
 const pattern = new RegExp(`/^${key.toUpperCase()}__/`);
+
+const { root } = getPackagesSync(process.cwd());
 
 nconf.env({
   separator: '__',
@@ -18,6 +21,9 @@ nconf.env({
 nconf.argv({
   p: {
     alias: 'port',
+  },
+  d: {
+    alias: 'cwd',
   },
   verbose: {
     describe: 'expose a key in the release plan item to the command',
@@ -40,9 +46,15 @@ nconf
   .defaults({
     verbose: false,
     port: 8081,
+    cwd: root.dir,
   });
+
+const options = nconf.get();
 
 module.exports = {
   nconf,
-  options,
+  options: {
+    ...options,
+    command: options._.pop(),
+  },
 };

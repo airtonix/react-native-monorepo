@@ -1,7 +1,12 @@
 const execa = require('execa');
 
-async function LaunchPackager({ port }) {
-  return execa('npx', ['react-native', 'start'`--port ${port}`, '--verbose']);
+function LaunchPackager({ port, cwd }) {
+  console.log(`🚀 launching metro bundler on ${port}`);
+  return execa('npx', ['react-native', 'start', `--port`, port, '--verbose'], {
+    cwd,
+    all: true,
+    buffer: false,
+  });
 }
 
 module.exports = {
