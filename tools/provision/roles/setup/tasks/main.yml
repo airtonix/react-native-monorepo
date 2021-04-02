@@ -1,0 +1,24 @@
+---
+- name: create ansible roles directory
+  file:
+    state: directory
+    path: "{{ ansible_env.HOME }}/.ansible/roles"
+    group: "{{ ansible_env.USER }}"
+    owner: "{{ ansible_env.USER }}"
+
+- name: Install requirements (Roles)
+  command: |
+    ansible-galaxy install \
+      -r {{ role_path }}/requirements.yml
+
+- name: create ansible collections directory
+  file:
+    state: directory
+    path: "{{ ansible_env.HOME }}/.ansible/collections"
+    group: "{{ ansible_env.USER }}"
+    owner: "{{ ansible_env.USER }}"
+
+- name: Install requirements (Collections)
+  command: |
+    ansible-galaxy collection install \
+      -r {{ role_path }}/requirements.yml

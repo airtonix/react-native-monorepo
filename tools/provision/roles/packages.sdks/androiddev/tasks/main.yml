@@ -1,0 +1,5 @@
+---
+- include_role:
+    name: nickpack.android_sdk
+  vars:
+    android_sdk_install_location: "{{ ansible_env.HOME}}/.android"

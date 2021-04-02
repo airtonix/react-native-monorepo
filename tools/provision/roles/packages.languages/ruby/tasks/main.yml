@@ -1,0 +1,5 @@
+---
+- include_tasks:
+    file: main-{{ ansible_os_family | lower }}.yml
+    apply:
+      become: true

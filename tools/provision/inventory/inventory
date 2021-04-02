@@ -1,0 +1,10 @@
+# vim:set filetype=yaml:
+---
+all:
+  hosts:
+
+workstation:
+  hosts:
+    127.0.0.1:
+  vars:
+    ansible_connection: local

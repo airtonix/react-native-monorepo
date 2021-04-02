@@ -1,0 +1,11 @@
+---
+- name: Workstation configuration
+  hosts: workstation
+  become: true
+
+  roles:
+    - { role: packages.languages/nodejs-nvm, tags: ['nodejs', 'language', 'dev'] }
+    - { role: packages.languages/python, tags: ['python', 'language', 'dev'] }
+    - { role: packages.languages/ruby, tags: ['ruby', 'language', 'dev'] }
+    - { role: packages.sdks/androiddev, tags: ['android', 'sdk', 'dev'] }
+    - { role: packages.tools/watchman, tags: ['watchman', 'tools', 'dev'] }

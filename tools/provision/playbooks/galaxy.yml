@@ -1,0 +1,6 @@
+---
+- name: Ansible Dependencies
+  hosts: all
+
+  roles:
+    - { role: setup }

@@ -1,0 +1,26 @@
+---
+- name: install/update ruby
+  package:
+    state: present
+    name:
+      - ruby
+      - ruby-devel
+      - rubygems
+
+- name: install common build dependencies
+  # gdbm-devel: Contains libraries/headers required for some rubygems
+  # zlib-devel: Necessary for building libxml2 (common dependency)
+  package:
+    state: present
+    name:
+      - gdbm-devel
+      - make
+      - zlib-devel
+
+- name: add gemrc
+  template:
+    src: gemrc
+    dest: "{{ ansible_env.HOME }}/.gemrc"
+    mode: 0644
+    setype: user_home_t
+    seuser: system_u

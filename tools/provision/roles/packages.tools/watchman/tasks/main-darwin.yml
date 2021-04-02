@@ -1,0 +1,5 @@
+---
+- name: Install watchman
+  homebrew:
+    name: watchman
+    state: present
