@@ -1,7 +1,7 @@
 ---
 sh: |
   cd apps/<%= code %>/android
-  grep -RiIl '../../node_modules' | xargs sed -i  's/\.\.\/\.\.\/node_modules/\$gradle\.ext\.repoRoot/g'
+  grep -RiIl '../../node_modules' | xargs sed -i  's/\.\.\/\.\.\/node_modules/\$gradle\.ext\.repoRoot\/node_modules/g'
 ---
 
 # Given you want to search for the string search and replace it with replace across multiple files, this is my battle-tested, one-line formula:
