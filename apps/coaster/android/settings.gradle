@@ -3,5 +3,5 @@ gradle.ext.repoRoot = new File("$hereDir/../../..").getCanonicalPath()
 println "REPOROOT: $gradle.ext.repoRoot"
 
 rootProject.name = 'coaster'
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+apply from: file($gradle.ext.repoRoot/node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
