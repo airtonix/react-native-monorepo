@@ -13,7 +13,7 @@ sh: >-
   npx npe scripts.setup "npx npm-run-all setup:*";
   npx npe scripts."setup:gradle" "yarn gradle wrapper";
 
-  grep -RiIl 'node_modules' apps/<%= code %>/android | xargs sed -i  's/".*node_modules/"\$gradle\.ext\.repoRoot\/node_modules/g';
+  npx rexreplace '"(.*)(node_modules)' '€gradle.ext.repoRoot/node_modules' ./android/**/*;
 
   rm ./flow*;
   mv ./__tests__/* ./;
