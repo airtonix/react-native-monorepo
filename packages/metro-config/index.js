@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { FileStore } = require('metro-cache');
+// const { FileStore } = require('metro-cache');
 const exclusionList = require('metro-config/src/defaults/exclusionList');
 const { getPackagesSync } = require('@manypkg/get-packages');
 
@@ -30,7 +30,7 @@ exports.createConfig = ({ projectRoot }) => ({
     extraNodeModules: new Proxy(
       {},
       {
-        get: (target, name) => path.join(process.cwd(), `node_modules/${name}`),
+        get: (target, name) => path.join(root.dir, 'node_modules', name),
       }
     ),
   },
@@ -45,9 +45,9 @@ exports.createConfig = ({ projectRoot }) => ({
     }),
   },
 
-  cacheStores: [
-    new FileStore({
-      root: path.join(projectRoot, 'metro-cache'),
-    }),
-  ],
+  // cacheStores: [
+  //   new FileStore({
+  //     root: path.join(projectRoot, 'metro-cache'),
+  //   }),
+  // ],
 });
