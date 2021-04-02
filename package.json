@@ -16,7 +16,8 @@
     "clean": "git clean -xdf",
     "generate": "hygen",
     "apps:coaster": "yarn workspace @airtonix/coaster",
-    "tool:provision": "yarn workspace @airtonix/provision do"
+    "tool:provision": "yarn workspace @airtonix/provision do",
+    "tool:metro-runner": "yarn workspace @airtonix/metro-runner"
   },
   "dependencies": {
     "@babel/core": "^7.13.14",
