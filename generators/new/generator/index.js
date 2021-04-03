@@ -1,20 +1,23 @@
-const {
-  PackageJson,
-  ApplicationId,
-  options,
-} = require('@airtonix/hygen-prompts');
+const { PackageJson, Gatherer, options } = require('@airtonix/hygen-prompts');
 
 module.exports = {
   prompt: async ({ prompter, args }) => {
     const package = await PackageJson({ prompter, args });
-    const application = await ApplicationId({
+    const generator = await Gatherer([
+      {
+        type: 'select',
+        name: 'type',
+        choices: ['add', 'new'],
+      },
+    ])({
       prompter,
       args: { ...args, ...package },
     });
+
     const results = {
       ...options,
       ...package,
-      ...application,
+      ...generator,
     };
     console.log(results);
     return results;

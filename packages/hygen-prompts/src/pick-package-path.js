@@ -3,7 +3,7 @@ const path = require('path');
 const minimatch = require('minimatch');
 const { getPackages } = require('@manypkg/get-packages');
 
-const { gather } = require('./gather');
+const { Gatherer } = require('./gatherer');
 
 exports.PickPackagePath = async function PickPackagePath({
   filter = '**/*',
@@ -16,7 +16,7 @@ exports.PickPackagePath = async function PickPackagePath({
     const output = minimatch(where, filter);
     return output;
   });
-  const selections = gather([
+  const selections = Gatherer([
     {
       type: 'select',
       name: 'packagePath',

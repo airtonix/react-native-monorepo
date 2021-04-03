@@ -1,15 +1,11 @@
-const { PackageName, PackageMeta } = require('@airtonix/hygen-prompts');
+const { PackageJson, options } = require('@airtonix/hygen-prompts');
 
 module.exports = {
   prompt: async ({ prompter, args }) => {
-    const packagename = await PackageName({ prompter, args });
-    const packagemeta = await PackageMeta({
-      prompter,
-      args: { ...args, ...packagename },
-    });
+    const package = await PackageJson({ prompter, args });
     const results = {
-      ...packagename,
-      ...packagemeta,
+      ...options,
+      ...package,
     };
     console.log(results);
     return results;

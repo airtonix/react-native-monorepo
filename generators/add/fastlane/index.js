@@ -1,5 +1,6 @@
 const { PickPackagePath } = require('@airtonix/hygen-prompts');
 
 module.exports = {
-  prompt: ({ prompter }) => PickPackagePath({ filter: 'apps/*', prompter }),
+  prompt: ({ prompter, args }) =>
+    PickPackagePath({ filter: 'apps/*', prompter, args }),
 };

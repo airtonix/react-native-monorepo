@@ -1,10 +1,10 @@
-const { gather } = require('./gather');
+const { Gatherer } = require('./gatherer');
 
 const APPLICATION_ID_PREFIX = 'com.airtonix.';
 
 exports.ApplicationId = async function ApplicationId({ prompter, args }) {
   return ({ code }) =>
-    gather([
+    Gatherer([
       {
         type: 'input',
         name: 'package_id',
