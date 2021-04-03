@@ -1,3 +1,4 @@
 {
-  "prefix": "@airtonix/"
+  "prefix": "@airtonix/",
+  "reactNativeVersion": "0.64"
 }

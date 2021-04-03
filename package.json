@@ -26,7 +26,8 @@
     "metro": "yarn native start --port 8081 --verbose",
     "setup": "npx npm-run-all setup:*",
     "setup:gradle": "yarn gradle wrapper",
-    "apps:ui": "yarn workspace @airtonix/ui"
+    "apps:ui": "yarn workspace @airtonix/ui",
+    "apps:example": "yarn workspace @airtonix/example"
   },
   "dependencies": {
     "@babel/core": "^7.13.14",

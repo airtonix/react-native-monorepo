@@ -3,7 +3,8 @@ sh: >-
   yarn react-native init
   --directory apps/<%= code %>
   --title <%= title %>
-  --template react-native-template-typescript
+  --template react-native-template-typescript@6.6.3
+  --version <%= reactNativeVersion %>
   <%= code %>;
 
   cd apps/<%= code %>;
