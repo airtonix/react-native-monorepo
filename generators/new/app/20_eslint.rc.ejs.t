@@ -1,5 +1,6 @@
 ---
 inject: true
+skip_if: 'overrides'
 after: extends
 to: apps/<%= code %>/.eslintrc.js
 sh: eslint apps/<%= code %>/.eslintrc.js --fix
