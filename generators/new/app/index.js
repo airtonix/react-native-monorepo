@@ -16,7 +16,6 @@ module.exports = {
       ...package,
       ...application,
     };
-    console.log(results);
     return results;
   },
 };

@@ -16,16 +16,16 @@ sh: >-
   npx npe scripts.setup "npx npm-run-all setup:*";
   npx npe scripts."setup:gradle" "yarn gradle wrapper";
 
-  npx rexreplace --literal '../node_modules' '../../../node_modules' ./android/settings.gradle;
-  npx rexreplace --literal '../../../node_modules' '../../../../../node_modules' ./android/build.gradle;
-  npx rexreplace --literal '../node_modules' '../../../node_modules' ./android/app/build.gradle;
-  npx rexreplace --literal '../node_modules' '../../../node_modules' ./ios/**/*;
+  npx rexreplace '../node_modules' '../../../node_modules' ./android/settings.gradle;
+  npx rexreplace '../node_modules' '../../../node_modules' ./android/build.gradle;
+  npx rexreplace '../../node_modules' '../../../../node_modules' ./android/app/build.gradle;
+  npx rexreplace '../node_modules' '../../../node_modules' ./ios/**/*;
 
-  rm ./flow*;
-  mv ./__tests__/* ./;
-  rm -rf ./__tests__;
+  # rm ./flow*;
+  # mv ./__tests__/* ./;
+  # rm -rf ./__tests__;
 
-  npx rexreplace --literal '../App' './App' ./*test.tsx;
+  # npx rexreplace '../App' './App' ./*test.tsx;
 ---
 
 This step will create the app.
