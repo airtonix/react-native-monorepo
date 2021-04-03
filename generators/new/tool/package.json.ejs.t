@@ -1,5 +1,5 @@
 ---
-to: tools/<%=code%>/package.json
+to: tools/<%= code %>/package.json
 ---
 {
   "name": "<%= package_name %>",
