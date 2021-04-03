@@ -1,3 +1,0 @@
----
-to: <%= appPath %>/fastlane/Fastfile
----
