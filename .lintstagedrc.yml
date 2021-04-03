@@ -1,7 +1,7 @@
 "package.json":
   - manypkg fix
 
-"*.{js,ts,tsx,json}":
+"*.{js,ts,tsx}":
   - eslint --fix
 
 "*.md":
