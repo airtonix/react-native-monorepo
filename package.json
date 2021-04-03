@@ -14,10 +14,12 @@
   },
   "scripts": {
     "clean": "git clean -xdf",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "generate": "hygen",
     "apps:coaster": "yarn workspace @airtonix/coaster",
     "tool:provision": "yarn workspace @airtonix/provision do",
-    "tool:metro-runner": "yarn workspace @airtonix/metro-runner"
+    "tool:metro-runner": "yarn workspace @airtonix/metro-runner",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@babel/core": "^7.13.14",
@@ -41,7 +43,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.1.2",
     "glob": "^7.1.6",
-    "husky": "^4.3.4",
+    "husky": "^6.0.0",
     "hygen": "^6.0.4",
     "jetifier": "^1.6.6",
     "jetify": "^1.0.2",
