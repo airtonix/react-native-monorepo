@@ -16,7 +16,6 @@
     "clean": "git clean -xdf",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "generate": "hygen",
-    "apps:coaster": "yarn workspace @airtonix/coaster",
     "tool:provision": "yarn workspace @airtonix/provision do",
     "tool:metro-runner": "yarn workspace @airtonix/metro-runner",
     "postinstall": "husky install"
