@@ -1,5 +1,5 @@
 {
-  "name": "@airtonix//hygen-generator-ui-framework",
+  "name": "@airtonix/hygen-generator-ui-framework",
   "version": "0.0.1",
   "dependencies": {
     "@airtonix/hygen-prompts": "0.0.1"

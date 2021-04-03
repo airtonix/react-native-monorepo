@@ -5,25 +5,30 @@ const {
 } = require('@airtonix/hygen-prompts');
 
 module.exports = {
-  prompt: ({ prompter, args }) => {
-    const package = PickPackagePath({ filter: 'apps/*', prompter, args });
-    const framework = Gatherer([
+  prompt: async ({ prompter, args }) => {
+    const package = await PickPackagePath({ filter: 'apps/*', prompter, args });
+    const questions = [
       {
+        name: 'framework',
+        message: 'Pick a framework',
         type: 'select',
         choices: [
           {
-            name: 'RNUI',
             message: 'https://wix.github.io/react-native-ui-lib',
             value: 'rnui',
           },
           {
-            name: 'Gaelio',
             message: 'https://github.com/galio-org/galio',
             value: 'rnui',
           },
         ],
       },
-    ])({ prompter, args: { ...args, ...package } });
+    ];
+    const framework = await Gatherer(questions)({
+      prompter,
+      args: { ...args, ...package },
+    });
+    console.log(framework);
     return {
       ...options,
       ...framework,
