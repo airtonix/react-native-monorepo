@@ -20,11 +20,13 @@
     "types:apps": "run-p 'apps:* -- types'",
     "test": "run-p test:*",
     "test:apps": "run-p 'apps:* -- test'",
-    "setup": "run-s 'apps:* -- setup'",
+    "setup": "run-s setup:*",
+    "setup:apps": "run-s 'apps:* -- setup'",
+    "setup:husky": "husky install",
     "generate": "hygen",
     "tool:provision": "yarn workspace @airtonix/provision do",
     "tool:metro-runner": "yarn workspace @airtonix/metro-runner",
-    "postinstall": "husky install",
+    "postinstall": "ultra setup",
     "apps:example": "yarn workspace @airtonix/example"
   },
   "dependencies": {
@@ -63,6 +65,7 @@
     "react-native": "^0.64.0",
     "run-if-diff": "^3.0.0",
     "typescript": "^4.1.2",
+    "ultra-runner": "^3.10.5",
     "version-changed": "^2.0.0"
   },
   "resolutions": {
