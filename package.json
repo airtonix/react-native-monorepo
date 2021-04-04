@@ -20,6 +20,7 @@
     "types:apps": "run-p 'apps:* -- types'",
     "test": "run-p test:*",
     "test:apps": "run-p 'apps:* -- test'",
+    "setup": "run-s 'apps:* -- setup'",
     "generate": "hygen",
     "tool:provision": "yarn workspace @airtonix/provision do",
     "tool:metro-runner": "yarn workspace @airtonix/metro-runner",
