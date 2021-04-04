@@ -1,4 +1,5 @@
 {
   "prefix": "@airtonix/",
+  "applicationPrefix": "com.airtonix.",
   "reactNativeTemplateVersion": "6.6.3"
 }
