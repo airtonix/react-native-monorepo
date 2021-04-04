@@ -24,8 +24,7 @@
     "tool:provision": "yarn workspace @airtonix/provision do",
     "tool:metro-runner": "yarn workspace @airtonix/metro-runner",
     "postinstall": "husky install",
-    "apps:example": "yarn workspace @airtonix/example",
-    "tool:run-with-changed-workspaces-cli": "yarn workspace @airtonix/run-with-changed-workspaces-cli"
+    "apps:example": "yarn workspace @airtonix/example"
   },
   "dependencies": {
     "@babel/core": "^7.13.14",
