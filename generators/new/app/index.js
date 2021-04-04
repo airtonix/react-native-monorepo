@@ -11,11 +11,15 @@ module.exports = {
       prompter,
       args: { ...args, ...package },
     });
+
     const results = {
       ...options,
       ...package,
       ...application,
     };
+
+    if (args.verbose) console.log(results);
+
     return results;
   },
 };

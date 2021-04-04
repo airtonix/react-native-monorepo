@@ -1,3 +1,5 @@
 ---
-sh: yarn apps:<%= code %> setup;
+sh: |
+  cd apps/<%= code %>;
+  yarn setup;
 ---

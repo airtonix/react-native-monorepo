@@ -1,5 +1,5 @@
 {
-  "name": "@airtonix/ui",
+  "name": "@airtonix/react-native-monorepo-template",
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
@@ -23,7 +23,6 @@
     "setup": "run-s 'apps:* -- setup'",
     "generate": "hygen",
     "tool:provision": "yarn workspace @airtonix/provision do",
-    "tool:metro-runner": "yarn workspace @airtonix/metro-runner",
     "postinstall": "husky install",
     "apps:example": "yarn workspace @airtonix/example"
   },

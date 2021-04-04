@@ -3,7 +3,9 @@ inject: true
 skip_if: 'overrides'
 after: extends
 to: apps/<%= code %>/.eslintrc.js
-sh: yarn apps:<%= code %> lint --fix
+sh: |
+  cd apps/<%= code %>;
+  yarn eslint --fix;
 ---
 overrides: [
     {
