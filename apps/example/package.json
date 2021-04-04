@@ -3,15 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "run-p metro 'native run-android --no-packager'",
-    "ios": "run-p metro 'native run-ios --no-packager'",
+    "android": "run-p metro native:android",
+    "ios": "run-p metro native:ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "native:android": "react-native run-android --no-packager",
+    "native:ios": "react-native run-ios --no-packager",
+    "metro": "react-native start --port 8081 --verbose",
     "gradle": "cd android && gradle",
-    "native": "react-native",
-    "metro": "yarn native start --port 8081 --verbose",
-    "setup": "npx npm-run-all setup:*",
+    "setup": "run-s setup:*",
     "setup:gradle": "yarn gradle wrapper"
   },
   "dependencies": {
