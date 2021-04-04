@@ -16,6 +16,7 @@ sh: >-
   npx dot-json "./package.json" scripts.gradle "cd android && gradle";
   npx dot-json "./package.json" scripts.setup "run-s setup:*";
   npx dot-json "./package.json" scripts."setup:gradle" "yarn gradle wrapper";
+  npx dot-json "./package.json" scripts."types" "tsc";
 
   # remove unused
   npx dot-json "./package.json" scripts.start --delete
@@ -25,11 +26,14 @@ sh: >-
   npx rexreplace '../../node_modules' '../../../../node_modules' ./android/app/build.gradle;
   npx rexreplace '../node_modules' '../../../node_modules' ./ios/**/*;
 
-  rm ./flow*;
-  mv ./__tests__/* ./;
-  rm -rf ./__tests__;
+  mkdir -p ./app;
+  mv ./App.tsx ./app/;
+  npx rexreplace './App' './app/App' ./index.js;
 
-  npx rexreplace '../App' './App' ./*test.tsx;
+  mv ./__tests__/App-test.tsx ./app/;
+  npx rexreplace '../App' './App' ./app/App-test.tsx;
+
+  rm -rf ./__tests__;
 ---
 
 This step will create the app.
