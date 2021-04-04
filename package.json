@@ -15,6 +15,11 @@
   "scripts": {
     "clean": "git clean -xdf",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "types": "run-s -n -l 'types:*'",
+    "types:root": "tsc",
+    "types:apps": "run-p 'apps:* -- types'",
+    "test": "run-p test:*",
+    "test:apps": "run-p 'apps:* -- test'",
     "generate": "hygen",
     "tool:provision": "yarn workspace @airtonix/provision do",
     "tool:metro-runner": "yarn workspace @airtonix/metro-runner",

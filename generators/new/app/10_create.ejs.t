@@ -7,15 +7,18 @@ sh: >-
   <%= code %>;
 
   cd apps/<%= code %>;
-  npx npe name "<%= package_name %>";
-  npx npe scripts.android "run-p metro native:android";
-  npx npe scripts.ios "run-p metro native:ios";
-  npx npe scripts."native:android" "react-native run-android --no-packager";
-  npx npe scripts."native:ios" "react-native run-ios --no-packager";
-  npx npe scripts.metro "react-native start --port 8081 --verbose";
-  npx npe scripts.gradle "cd android && gradle";
-  npx npe scripts.setup "run-s setup:*";
-  npx npe scripts."setup:gradle" "yarn gradle wrapper";
+  npx dot-json "./package.json" name "<%= package_name %>";
+  npx dot-json "./package.json" scripts.android "run-p metro native:android";
+  npx dot-json "./package.json" scripts.ios "run-p metro native:ios";
+  npx dot-json "./package.json" scripts."native:android" "react-native run-android --no-packager";
+  npx dot-json "./package.json" scripts."native:ios" "react-native run-ios --no-packager";
+  npx dot-json "./package.json" scripts.metro "react-native start --port 8081 --verbose";
+  npx dot-json "./package.json" scripts.gradle "cd android && gradle";
+  npx dot-json "./package.json" scripts.setup "run-s setup:*";
+  npx dot-json "./package.json" scripts."setup:gradle" "yarn gradle wrapper";
+
+  # remove unused
+  npx dot-json "./package.json" scripts.start --delete
 
   npx rexreplace '../node_modules' '../../../node_modules' ./android/settings.gradle;
   npx rexreplace '../node_modules' '../../../node_modules' ./android/build.gradle;
