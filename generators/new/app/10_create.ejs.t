@@ -31,7 +31,7 @@ sh: >-
   npx rexreplace './App' './app/App' ./index.js;
 
   mv ./__tests__/App-test.tsx ./app/App.test.tsx;
-  npx rexreplace '../App' './App' ./app/App-test.tsx;
+  npx rexreplace '../App' './App' ./app/App.test.tsx;
 
   rm -rf ./__tests__;
 ---
