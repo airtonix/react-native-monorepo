@@ -15,18 +15,15 @@
   "scripts": {
     "clean": "git clean -xdf",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "types": "run-s -n -l 'types:*'",
+    "types:root": "tsc",
+    "types:apps": "run-p 'apps:* -- types'",
+    "test": "run-p test:*",
+    "test:apps": "run-p 'apps:* -- test'",
     "generate": "hygen",
     "tool:provision": "yarn workspace @airtonix/provision do",
     "tool:metro-runner": "yarn workspace @airtonix/metro-runner",
     "postinstall": "husky install",
-    "gradle": "cd android && gradle",
-    "android": "run-p metro 'native run-android --no-packager'",
-    "ios": "run-p metro 'native run-ios --no-packager'",
-    "native": "react-native",
-    "metro": "yarn native start --port 8081 --verbose",
-    "setup": "npx npm-run-all setup:*",
-    "setup:gradle": "yarn gradle wrapper",
-    "apps:ui": "yarn workspace @airtonix/ui",
     "apps:example": "yarn workspace @airtonix/example"
   },
   "dependencies": {

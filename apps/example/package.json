@@ -13,7 +13,8 @@
     "metro": "react-native start --port 8081 --verbose",
     "gradle": "cd android && gradle",
     "setup": "run-s setup:*",
-    "setup:gradle": "yarn gradle wrapper"
+    "setup:gradle": "yarn gradle wrapper",
+    "types": "tsc"
   },
   "dependencies": {
     "react": "^17.0.2",
