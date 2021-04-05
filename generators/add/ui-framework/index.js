@@ -19,7 +19,7 @@ module.exports = {
           },
           {
             message: 'https://github.com/galio-org/galio',
-            value: 'rnui',
+            value: 'gailo',
           },
         ],
       },

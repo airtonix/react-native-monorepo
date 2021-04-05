@@ -1,14 +1,21 @@
+const lodash = require('lodash');
+
+const { options } = require('./options');
 const { Gatherer } = require('./gatherer');
 
-const APPLICATION_ID_PREFIX = 'com.airtonix.';
-
 exports.ApplicationId = async function ApplicationId({ prompter, args }) {
-  return ({ code }) =>
-    Gatherer([
-      {
-        type: 'input',
-        name: 'package_id',
-        initial: `${APPLICATION_ID_PREFIX}${code}`,
-      },
-    ])({ prompter, args });
+  const flags = { ...options, ...args };
+  const id = lodash.camelCase(flags.code).toLowerCase();
+  const package = await Gatherer([
+    {
+      type: 'input',
+      name: 'package_id',
+      initial: `${flags.applicationPrefix}${id}`,
+    },
+  ])({ prompter, flags });
+
+  return {
+    ...package,
+    id,
+  };
 };

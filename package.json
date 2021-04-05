@@ -1,5 +1,5 @@
 {
-  "name": "@airtonix/ui",
+  "name": "@airtonix/react-native-monorepo-template",
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
@@ -20,10 +20,12 @@
     "types:apps": "run-p 'apps:* -- types'",
     "test": "run-p test:*",
     "test:apps": "run-p 'apps:* -- test'",
+    "setup": "run-s setup:*",
+    "setup:apps": "run-s 'apps:* -- setup'",
+    "setup:husky": "husky install",
     "generate": "hygen",
     "tool:provision": "yarn workspace @airtonix/provision do",
-    "tool:metro-runner": "yarn workspace @airtonix/metro-runner",
-    "postinstall": "husky install",
+    "postinstall": "ultra setup",
     "apps:example": "yarn workspace @airtonix/example"
   },
   "dependencies": {
@@ -38,6 +40,7 @@
     "@typescript-eslint/parser": "^4.9.0",
     "axios": "^0.21.1",
     "babel-plugin-module-resolver": "^4.1.0",
+    "dot-json": "^1.2.2",
     "dpx": "^3.1.1",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
@@ -55,17 +58,16 @@
     "jetify": "^1.0.2",
     "lint-staged": "^10.5.3",
     "lodash": "^4.17.21",
-    "npe": "^1.1.3",
     "npm-run-all": "4.1.5",
     "onchange": "7.1.0",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-native": "^0.64.0",
+    "replace-in-files-cli": "^1.0.0",
     "run-if-diff": "^3.0.0",
     "typescript": "^4.1.2",
-    "version-changed": "^2.0.0",
-    "wsrun": "^5.2.4",
-    "yarn-workspace-tools": "^2.0.7"
+    "ultra-runner": "^3.10.5",
+    "version-changed": "^2.0.0"
   },
   "resolutions": {
     "**/@types/react": "^16.9.56",
