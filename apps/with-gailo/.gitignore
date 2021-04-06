@@ -28,10 +28,6 @@ build/
 .gradle
 local.properties
 *.iml
-gradle/
-gradlew
-gradlew.bat
-.jar
 
 # node.js
 #
@@ -44,10 +40,6 @@ buck-out/
 \.buckd/
 *.keystore
 !debug.keystore
-
-
-# Metro
-metro-cache/
 
 # fastlane
 #
