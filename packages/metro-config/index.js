@@ -1,38 +1,33 @@
 const path = require('path');
-const fs = require('fs'); // Or `import fs from "fs";` with ESM
+const fs = require('fs');
 
-// const { FileStore } = require('metro-cache');
-const exclusionList = require('metro-config/src/defaults/exclusionList');
+const { FileStore } = require('metro-cache');
 const { getPackagesSync } = require('@manypkg/get-packages');
 
 const { root, packages } = getPackagesSync(process.cwd());
 
-exports.createConfig = ({ projectRoot }) => {
+exports.createConfig = ({ projectRoot, packageName }) => {
   const absoluteProjectRoot = path.resolve(projectRoot, '.');
-  const { name } = require(`${absoluteProjectRoot}/package.json`);
 
-  const workspacesWithNodeModules = packages.filter(({ dir }) =>
-    fs.existsSync(path.join(dir, 'node_modules'))
+  const workspacePackages = packages.reduce(
+    (result, { dir, packageJson: { name } }) => {
+      return {
+        ...result,
+        [name]: dir,
+      };
+    },
+    {}
   );
-
-  const blacklistRE = workspacesWithNodeModules
-    .filter(({ packageJson }) => packageJson.name !== name)
-    .map(
-      ({ dir }) =>
-        new RegExp(
-          `^${escape(path.resolve(projectRoot, dir, 'node_modules'))}\\/.*$`
-        )
-    );
   const watchFolders = [
     path.join(root.dir, 'node_modules'),
-    ...workspacesWithNodeModules.map(({ dir }) =>
-      path.join(dir, 'node_modules')
-    ),
+    path.join(projectRoot, 'node_modules'),
+    ...Object.values(workspacePackages),
   ];
+
   console.log({
-    name,
+    packageName,
     absoluteProjectRoot,
-    blacklistRE,
+    workspacePackages,
     watchFolders,
   });
 
@@ -40,18 +35,23 @@ exports.createConfig = ({ projectRoot }) => {
     projectRoot: absoluteProjectRoot,
     watchFolders,
     resolver: {
-      blacklistRE: exclusionList(blacklistRE),
+      // blacklistRE: exclusionList(blacklistRE),
       // https://github.com/facebook/metro/issues/1#issuecomment-453450709
-      extraNodeModules: new Proxy(
-        {},
-        {
-          get: (target, name) => {
-            const result = path.join(root.dir, 'node_modules', name);
-            // console.log(`resolver > ${name} = ${result}`);
-            return result;
-          },
-        }
-      ),
+      extraNodeModules: new Proxy(workspacePackages, {
+        get: (target, name) => {
+          if (target.hasOwnProperty(name)) {
+            return target[name];
+          }
+          const result = watchFolders.find((modules) => {
+            const modulePath = path.join(modules, name);
+            return fs.existsSync(modulePath)
+              ? fs.realpathSync(modulePath)
+              : undefined;
+          });
+          target[name] = result;
+          return result;
+        },
+      }),
     },
 
     // http://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059#faster-app-launches-with-inline-requires
@@ -64,10 +64,10 @@ exports.createConfig = ({ projectRoot }) => {
       }),
     },
 
-    // cacheStores: [
-    //   new FileStore({
-    //     root: path.join(projectRoot, 'metro-cache'),
-    //   }),
-    // ],
+    cacheStores: [
+      new FileStore({
+        root: path.join(projectRoot, 'metro-cache'),
+      }),
+    ],
   };
 };

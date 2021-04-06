@@ -18,7 +18,7 @@ sh: |
 
   yarn replace-in-files \
     --string 'appName' \
-    --replacement '("<%= title %>")' \
+    --replacement '("<%= id %>")' \
     ./index.js;
 
   yarn replace-in-files \
