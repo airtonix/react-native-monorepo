@@ -1,0 +1,5 @@
+rootProject.name = 'APP_NAME'
+gradle.ext.REPO_ROOT = new File("${System.getProperty("user.dir")}../../../").getCanonicalPath();
+
+apply from: file("${gradle.ext.REPO_ROOT}/node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
