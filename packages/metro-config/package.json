@@ -1,5 +1,5 @@
 {
-  "name": "@airtonix/metro-config",
+  "name": "@airtonix-react-native/metro-config",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

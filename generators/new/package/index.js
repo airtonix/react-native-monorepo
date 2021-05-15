@@ -1,4 +1,7 @@
-const { PackageJson, options } = require('@airtonix/hygen-prompts');
+const {
+  PackageJson,
+  options,
+} = require('@airtonix-react-native/hygen-prompts');
 
 module.exports = {
   prompt: async ({ prompter, args }) => {

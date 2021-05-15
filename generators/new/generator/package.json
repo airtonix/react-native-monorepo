@@ -1,7 +1,7 @@
 {
-  "name": "@airtonix/hygen-generator-generator",
+  "name": "@airtonix-react-native/hygen-generator-generator",
   "version": "0.0.1",
   "dependencies": {
-    "@airtonix/hygen-prompts": "0.0.1"
+    "@airtonix-react-native/hygen-prompts": "0.0.1"
   }
 }

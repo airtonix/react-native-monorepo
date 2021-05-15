@@ -1,4 +1,4 @@
-const { PickPackagePath } = require('@airtonix/hygen-prompts');
+const { PickPackagePath } = require('@airtonix-react-native/hygen-prompts');
 
 module.exports = {
   prompt: ({ prompter, args }) =>

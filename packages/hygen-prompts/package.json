@@ -1,5 +1,5 @@
 {
-  "name": "@airtonix/hygen-prompts",
+  "name": "@airtonix-react-native/hygen-prompts",
   "version": "0.0.1",
   "private": true,
   "main": "./src/index.js",

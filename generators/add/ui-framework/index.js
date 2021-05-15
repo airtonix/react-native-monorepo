@@ -2,7 +2,7 @@ const {
   PickPackagePath,
   options,
   Gatherer,
-} = require('@airtonix/hygen-prompts');
+} = require('@airtonix-react-native/hygen-prompts');
 
 module.exports = {
   prompt: async ({ prompter, args }) => {
