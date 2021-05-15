@@ -1,5 +1,5 @@
 {
-  "name": "@airtonix/react-native-monorepo-template",
+  "name": "@airtonix-react-native/monorepo-template",
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
@@ -24,9 +24,9 @@
     "setup:apps": "run-s 'apps:* -- setup'",
     "setup:husky": "husky install",
     "generate": "hygen",
-    "tool:provision": "yarn workspace @airtonix/provision do",
+    "tool:provision": "yarn workspace @airtonix-react-native/provision do",
     "postinstall": "ultra setup",
-    "apps:example": "yarn workspace @airtonix/example"
+    "apps:example": "yarn workspace @airtonix-react-native/example"
   },
   "dependencies": {
     "@babel/core": "^7.13.14",
