@@ -9,7 +9,8 @@
       "apps/*",
       "packages/*",
       "tools/*",
-      "generators/**/*"
+      "generators/**/*",
+      "!generators/**/template"
     ]
   },
   "scripts": {
@@ -21,12 +22,13 @@
     "test": "run-p test:*",
     "test:apps": "run-p 'apps:* -- test'",
     "setup": "run-s setup:*",
-    "setup:apps": "run-s 'apps:* -- setup'",
+    "setup:gems": "bundle install",
+    "setup:apps": "yarn workspaces foreach --include 'app-*' run setup",
     "setup:husky": "husky install",
-    "generate": "hygen",
+    "generate": "plop",
     "tool:provision": "yarn workspace @airtonix-react-native/provision do",
     "postinstall": "ultra setup",
-    "apps:example": "yarn workspace @airtonix-react-native/example"
+    "apps:something": "yarn workspace @airtonix-react-native/something"
   },
   "dependencies": {
     "@babel/core": "^7.13.14",
@@ -60,17 +62,18 @@
     "lodash": "^4.17.21",
     "npm-run-all": "4.1.5",
     "onchange": "7.1.0",
+    "plop": "^2.7.4",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-native": "^0.64.0",
     "replace-in-files-cli": "^1.0.0",
     "run-if-diff": "^3.0.0",
+    "ts-node": "^9.1.1",
     "typescript": "^4.1.2",
     "ultra-runner": "^3.10.5",
     "version-changed": "^2.0.0"
   },
   "resolutions": {
-    "**/@types/react": "^16.9.56",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0"
   }

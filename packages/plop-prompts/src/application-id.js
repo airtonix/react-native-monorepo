@@ -10,7 +10,7 @@ exports.ApplicationId = async function ApplicationId({ prompter, args }) {
     {
       type: 'input',
       name: 'package_id',
-      default: `${flags.applicationPrefix}${id}`,
+      initial: `${flags.applicationPrefix}${id}`,
     },
   ])({ prompter, flags });
 

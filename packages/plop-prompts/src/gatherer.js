@@ -9,7 +9,7 @@ exports.Gatherer = function Gatherer(questions = []) {
     const result = await questions.reduce(async (resultsPromise, question) => {
       const results = await resultsPromise;
 
-      question.default = question.default || lodash.get(flags, question.name);
+      question.initial = question.initial || lodash.get(flags, question.name);
 
       const answer = await prompter.prompt(question);
 

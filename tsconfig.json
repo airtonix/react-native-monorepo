@@ -1,4 +1,12 @@
 {
     "extends": "./tsconfig.base.json",
-    "exclude": ["./apps/*"]
+    "exclude": ["./apps/*"],
+    "ts-node": {
+      // ts-node options here
+      "transpileOnly": true,
+      "compiler": "typescript",
+      "compilerOptions": {
+        "module": "CommonJS",
+      }
+    }
   }

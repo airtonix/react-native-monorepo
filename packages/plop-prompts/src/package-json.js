@@ -10,12 +10,15 @@ exports.PackageJson = async function PackageJson({ prompter, args = {} }) {
       type: 'input',
       name: 'title',
       message: 'Title?',
+      default: flags.title,
       questions: ({ title }) => [
         {
           type: 'input',
           name: 'package_name',
           message: 'Module name',
-          default: `${flags.prefix}${lodash.kebabCase(title) || 'unknown'}`,
+          default: `${flags.prefix || ''}${
+            lodash.kebabCase(title) || 'unknown'
+          }`,
         },
         {
           type: 'input',

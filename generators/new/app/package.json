@@ -2,6 +2,7 @@
   "name": "@airtonix-react-native/hygen-generator-monorepo-react-native-app",
   "version": "0.0.1",
   "dependencies": {
-    "@airtonix-react-native/hygen-prompts": "0.0.1"
+    "@airtonix-react-native/plop-prompts": "0.0.1",
+    "plop": "^2.7.4"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "name": "@airtonix-react-native/plop-prompts",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./src/index.ts",
+  "dependencies": {
+    "@manypkg/get-packages": "^1.1.1",
+    "lodash": "^4.17.21",
+    "minimatch": "^3.0.4",
+    "nconf": "^0.11.2",
+    "user-home": "^2.0.0"
+  }
+}
